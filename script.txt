@@ -1,0 +1,8 @@
+- No visibility of what is currently happening.
+
+Ideas:
+ - OpenTelemetry to check MongoDB queries
+ - ClinicJS to monitor overall
+ - Nodesource to snapshot
+
+Why it takes so long to boot?
