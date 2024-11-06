@@ -1,7 +1,9 @@
 {
     "name": "Meteor Consultancy",
-    "image": "node:20",
     "containerUser": "node",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "runArgs": [
         "-v",
         "${localWorkspaceFolder}:/src",
@@ -12,11 +14,9 @@
         "--env",
         "METEOR_ALLOW_SUPERUSER=true",
         "--env",
-        "PATH=/root/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
-        "-p",
-        "3000:3000"
+        "PATH=/root/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
     ],
-    // "postCreateCommand": "apt-get update && apt-get install -y zsh && chsh -s $(which zsh) root",
+    // "postCreateCommand": "npx playwright install-deps",
     // "postStartCommand": "sudo chown -R node:node /src",
     // "workspaceFolder": "/src",
     "shutdownAction": "stopContainer"
