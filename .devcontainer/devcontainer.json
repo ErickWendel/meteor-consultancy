@@ -1,17 +1,10 @@
 {
     "name": "Meteor Consultancy",
     "image": "node:20",
+    "containerUser": "node",
     "runArgs": [
         "-v",
-        "${localWorkspaceFolder}/.npm:/root/.npm",
-        "-v",
-        "${localWorkspaceFolder}/.babel-cache:/src/.babel-cache",
-        "-v",
-        "${localWorkspaceFolder}/meteor:/src/meteor",
-        "-v",
-        "${localWorkspaceFolder}/meteor-perf:/src/meteor-perf",
-        "-v",
-        "${localWorkspaceFolder}/performance:/src/performance",
+        "${localWorkspaceFolder}:/src",
         "-v",
         "${localWorkspaceFolder}/.npm-global:/root/.npm-global",
         "--env",
@@ -21,17 +14,10 @@
         "--env",
         "PATH=/root/.npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
         "-p",
-        "3000:3000",
-        "-w",
-        "/src",
-        "--platform",
-        "linux/arm64"
+        "3000:3000"
     ],
     // "postCreateCommand": "apt-get update && apt-get install -y zsh && chsh -s $(which zsh) root",
-    // "postStartCommand": "zsh",
-    "workspaceFolder": "/src",
-    "mounts": [
-        "source=${localWorkspaceFolder},target=/src,type=bind"
-    ],
+    // "postStartCommand": "sudo chown -R node:node /src",
+    // "workspaceFolder": "/src",
     "shutdownAction": "stopContainer"
 }
